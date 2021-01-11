@@ -5535,12 +5535,12 @@ exports.actions = actions;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.machine = void 0;
+exports.toggleMachine = void 0;
 
-var xstate_1 = require("xstate"); // Our State Machine
+var xstate_1 = require("xstate"); // State Machine
 
 
-exports.machine = xstate_1.Machine({
+exports.toggleMachine = xstate_1.Machine({
   id: "toggleButton",
   initial: "idle",
   states: {
@@ -7341,37 +7341,35 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var state_1 = require("./scripts/state");
-
 var xstate_1 = require("xstate");
 
-var anime_es_js_1 = __importDefault(require("animejs/lib/anime.es.js")); // Varibles
+var state_1 = require("./scripts/state"); // Anime
+
+
+var anime_es_js_1 = __importDefault(require("animejs/lib/anime.es.js")); // Vars
 
 
 var button = document.querySelector("#addNote");
-var service = xstate_1.interpret(state_1.machine); // Toggle State Function
+var toggleService = xstate_1.interpret(state_1.toggleMachine);
 
 var toggle = function toggle() {
   button.addEventListener("click", function () {
-    // Toggle state
-    service.send("TOGGLE");
+    toggleService.send("TOGGLE");
   });
-}; // Disable button while animation is running
+};
 
-
-var buttonDisabled = function buttonDisabled(status) {
-  if (status) {
+var buttonDisabled = function buttonDisabled(btnStatus) {
+  if (btnStatus) {
     button.setAttribute("disabled", "");
   } else {
     button.removeAttribute("disabled");
   }
-}; // Animation function depending on state
+};
 
-
-var animate = function animate(state) {
+var animate = function animate(status) {
   var tl = anime_es_js_1.default.timeline();
 
-  if (state === "active") {
+  if (status === "active") {
     buttonDisabled(true);
     tl.add({
       targets: button,
@@ -7382,14 +7380,8 @@ var animate = function animate(state) {
       easing: "easeInOutSine"
     }).add({
       targets: ".note-selectors .first",
-      translateY: function translateY(el) {
-        return [el.getAttribute("data-from"), el.getAttribute("data-to")];
-      },
+      translateY: [0, 80],
       duration: 3200,
-      opacity: {
-        value: 1,
-        duration: 10
-      },
       scaleY: [1.8, 1]
     }, "-=400").add({
       targets: ".note-selectors .other",
@@ -7407,7 +7399,7 @@ var animate = function animate(state) {
         buttonDisabled(false);
       }
     }, "-=2600");
-  } else if (state === "inactive") {
+  } else if (status === "inactive") {
     buttonDisabled(true);
     tl.add({
       targets: button,
@@ -7421,26 +7413,24 @@ var animate = function animate(state) {
       },
       duration: 400,
       delay: anime_es_js_1.default.stagger(60),
-      easing: "easeInOutSine"
-    }, "-=400").add({
-      targets: ".note-selectors .selector",
-      opacity: 0,
+      easing: "easeInOutSine",
       complete: function complete() {
         buttonDisabled(false);
       }
-    });
+    }, "-=400");
   }
 };
 
 var init = function init() {
-  service.onTransition(function (state) {
+  toggleService.onTransition(function (state) {
+    console.log(state.value);
     animate(state.value);
   }).start();
   toggle();
 };
 
 init();
-},{"./scripts/state":"scripts/state.ts","xstate":"../node_modules/xstate/es/index.js","animejs/lib/anime.es.js":"../node_modules/animejs/lib/anime.es.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"xstate":"../node_modules/xstate/es/index.js","./scripts/state":"scripts/state.ts","animejs/lib/anime.es.js":"../node_modules/animejs/lib/anime.es.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -7468,7 +7458,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61403" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63949" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

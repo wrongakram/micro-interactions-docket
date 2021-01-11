@@ -36,20 +36,19 @@
       }
     }
     .note-selectors {
-      margin-top: -24px;
       display: flex;
       justify-content: center;
       position: relative;
       z-index: 10;
+      margin-top: -24px;
       .selector {
-        margin: 24px 0;
-        position: absolute;
-        margin: 0 auto;
-        opacity: 0;
         height: 32px;
         width: 32px;
+        margin: 0px auto;
         border-radius: 100%;
+        position: absolute;
         top: -20px;
+        opacity: 0;
         &.first {
           background: #ffcf7d;
           z-index: 10;
