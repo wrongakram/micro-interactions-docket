@@ -1,0 +1,30 @@
+.header {
+  display: flex;
+  align-items: center;
+  padding: 0 48px;
+  grid-area: header;
+  .search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 8px;
+      img {
+        height: 18px;
+        width: 18px;
+      }
+    }
+    input {
+      height: 32px;
+      border: none;
+      outline: none;
+      font-size: 20px;
+      &::placeholder {
+        color: #a1a7b6;
+      }
+    }
+  }
+}

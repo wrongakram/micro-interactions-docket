@@ -1,0 +1,77 @@
+.nav {
+  grid-area: nav;
+  border-right: 1px solid #ececec;
+  height: 100vh;
+  width: 128px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  .logo {
+    height: 80px;
+    h4 {
+      font-size: 20px;
+    }
+  }
+  .notes-container {
+    filter: url(#gooey-effect);
+    .add-button {
+      margin-top: 48px;
+      button {
+        z-index: 21;
+        border-radius: 100%;
+        background: #000;
+        border: none;
+        height: 56px;
+        width: 56px;
+        outline: none;
+        position: relative;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+          width: 28px;
+          height: 28px;
+        }
+      }
+    }
+    .note-selectors {
+      margin-top: -24px;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      z-index: 10;
+      .selector {
+        margin: 24px 0;
+        position: absolute;
+        margin: 0 auto;
+        opacity: 0;
+        height: 32px;
+        width: 32px;
+        border-radius: 100%;
+        top: -20px;
+        &.first {
+          background: #ffcf7d;
+          z-index: 10;
+          opacity: 1;
+        }
+        &.second {
+          z-index: 9;
+          background: #f0a177;
+        }
+        &.third {
+          z-index: 8;
+          background: #b095f6;
+        }
+        &.fourth {
+          z-index: 7;
+          background: #55cffa;
+        }
+        &.fifth {
+          z-index: 6;
+          background: #e6ee96;
+        }
+      }
+    }
+  }
+}

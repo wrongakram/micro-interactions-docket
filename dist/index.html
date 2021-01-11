@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/app.55bab2ff.css">
+  <script src="/app.55bab2ff.js"></script></head>
+  <body>
+    <div class="grid">
+      <!-- Nav -->
+      <div class="nav">
+        <div class="logo">
+          <h4>Docket</h4>
+        </div>
+        <div class="notes-container">
+          <div class="add-button">
+            <button id="addNote">
+              <img src="/plus.dc15a040.svg" alt="Plus Icon">
+            </button>
+          </div>
+          <div class="note-selectors">
+            <div class="selector first" data-from="0" data-to="80"></div>
+            <div class="selector second other" data-from="100" data-to="140"></div>
+            <div class="selector third other" data-from="160" data-to="200"></div>
+            <div class="selector fourth other" data-from="220" data-to="260"></div>
+            <div class="selector fifth other" data-from="280" data-to="320"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Filter for gooey effect -->
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <defs>
+          <filter id="gooey-effect">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -9" result="gooey-effect"></feColorMatrix>
+            <feComposite in="SourceGraphic" in2="gooey-effect" operator="atop"></feComposite>
+          </filter>
+        </defs>
+      </svg>
+
+      <!-- Header -->
+      <header class="header">
+        <div class="search">
+          <div class="icon">
+            <img src="/search.3a3f8d84.svg" alt="Search Icon">
+          </div>
+          <input type="text" placeholder="Search">
+        </div>
+      </header>
+      <!-- Main -->
+      <main class="main">
+        <div class="header">
+          <h2>Notes</h2>
+        </div>
+        <div class="notes">
+          <div class="note">
+            <textarea type="text" placeholder="The beginning of screenless design: UI jobs to be take over by Solution Architect"></textarea>
+            <div class="footer">
+              <div class="date">
+                <span>May 21, 2020</span>
+              </div>
+              <div class="edit">
+                <button>
+                  <img src="/edit.57c92ff9.svg" alt="Edit Icon">
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+  <script src="/app.c61986b1.js"></script>
+</html>

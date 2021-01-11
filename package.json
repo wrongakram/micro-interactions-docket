@@ -1,0 +1,19 @@
+{
+  "name": "docket",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "build": "parcel build dist"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.32.2",
+    "typescript": "^4.1.3"
+  },
+  "dependencies": {
+    "animejs": "^3.2.1",
+    "xstate": "^4.15.4"
+  }
+}
