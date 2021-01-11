@@ -20,25 +20,14 @@
             </button>
           </div>
           <div class="note-selectors">
-            <div class="selector first" data-from="0" data-to="80"></div>
-            <div class="selector second other" data-from="100" data-to="140"></div>
-            <div class="selector third other" data-from="160" data-to="200"></div>
-            <div class="selector fourth other" data-from="220" data-to="260"></div>
-            <div class="selector fifth other" data-from="280" data-to="320"></div>
+            <div class="selector first"></div>
+            <div class="selector second other"></div>
+            <div class="selector third other"></div>
+            <div class="selector fourth other"></div>
+            <div class="selector fifth other"></div>
           </div>
         </div>
       </div>
-      <!-- Filter for gooey effect -->
-      <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-        <defs>
-          <filter id="gooey-effect">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
-            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -9" result="gooey-effect"></feColorMatrix>
-            <feComposite in="SourceGraphic" in2="gooey-effect" operator="atop"></feComposite>
-          </filter>
-        </defs>
-      </svg>
-
       <!-- Header -->
       <header class="header">
         <div class="search">
