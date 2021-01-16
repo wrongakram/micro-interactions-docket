@@ -5,21 +5,15 @@ import { toggleMachine } from "./scripts/state";
 import anime from "animejs/lib/anime.es.js";
 
 // Vars
-const button: HTMLElement = document.querySelector("#addNote");
+const button = <HTMLInputElement>document.querySelector('#addNote')
 const toggleService = interpret(toggleMachine);
 
 const toggle = () => {
-  button.addEventListener("click", () => {
-    toggleService.send("TOGGLE");
-  });
+  button.onclick = () => toggleService.send('TOGGLE')
 };
 
 const buttonDisabled = (btnStatus: boolean) => {
-  if (btnStatus) {
-    button.setAttribute("disabled", "");
-  } else {
-    button.removeAttribute("disabled");
-  }
+  button.disabled = btnStatus
 };
 
 const animate = (status: any) => {
